@@ -1,0 +1,13 @@
+.login-box > .login-box-body > div > h5 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 1.2em;
+    text-align: center;
+    color: #3c8dbc;
+    font-weight: bold;
+}
+
+.login-box-body {
+    background: #ecf0f5;
+    box-shadow: 5px 5px #e1e4e8;
+}

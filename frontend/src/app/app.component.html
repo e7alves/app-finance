@@ -1,0 +1,10 @@
+<div *ngIf="isLogged; else elseBlock" class="wrapper">
+    <app-header></app-header>
+    <app-sidebar></app-sidebar>
+    <app-main-content></app-main-content>
+</div>
+<ng-template #elseBlock>
+    <router-outlet></router-outlet>
+</ng-template>
+
+

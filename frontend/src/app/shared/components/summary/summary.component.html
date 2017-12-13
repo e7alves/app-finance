@@ -1,0 +1,20 @@
+<section class="content">    
+  <app-value-box 
+      [label]="'Total credits'"
+      [color]="'bg-green'"
+      [icon]="'fa-bank'"
+      [value]="totalCredits">
+    </app-value-box>
+    <app-value-box 
+        [label]="'Total debts'" 
+        [color]="'bg-red'" 
+        [icon]="'fa-credit-card'"
+        [value]="totalDebts">
+    </app-value-box>
+    <app-value-box 
+        [label]="'Summary'" 
+        [color]="'bg-blue'" 
+        [icon]="'fa-money'"
+        [value]="calcSummary()">
+  </app-value-box>
+</section>

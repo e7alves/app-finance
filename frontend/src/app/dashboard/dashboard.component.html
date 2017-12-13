@@ -1,0 +1,11 @@
+<section class="content-header">
+    <h1>Dashboard</h1>
+</section>
+<section class="content">
+    <app-summary 
+        [totalCredits]="values.credit"
+        [totalDebts]="values.debt"
+    >
+    </app-summary>
+    <toaster-container [toasterconfig]="toasterconfig"></toaster-container>
+</section>

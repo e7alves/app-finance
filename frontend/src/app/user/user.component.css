@@ -1,0 +1,5 @@
+.navbar-nav > .user-menu > .dropdown-menu, li.user-header > img,
+.navbar-nav > .user-menu .user-image {
+    background-color: #DDD !important;
+}
+

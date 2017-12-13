@@ -1,0 +1,40 @@
+<div class="login-box">
+  <div class="login-logo"><i class="fa fa-leaf"></i><b>APP</b>Finance</div>
+  <div class="login-box-body">
+    <p class="login-box-msg"></p>
+    <div>
+        <h5>{{ !isSignUp ? 'Login' : 'Sign up' }}</h5>
+        <app-login-input 
+          (changeValue)="user.email = $event.value" 
+          [value]="user.email" 
+          placeholder="Email"
+          type="email"
+        ></app-login-input>
+        <app-login-input 
+          (changeValue)="user.password = $event.value" 
+          [value]="user.password" 
+          placeholder="Password"
+          type="password"
+        ></app-login-input>
+        <app-login-input 
+          *ngIf="isSignUp"
+          (changeValue)="user.confirmPassword = $event.value" 
+          [value]="user.confirmPassword" 
+          placeholder="Confirm"
+          type="password"
+        ></app-login-input>
+        <div class="row">
+          <div class="col-sm-4 pull-right">
+            <button *ngIf="!isSignUp" class="btn btn-primary btn-block btn-flat" (click)="onLogin()">
+              Login
+            </button>
+            <button *ngIf="isSignUp" class="btn btn-primary btn-block btn-flat" (click)="onSignUp()">
+              Sign in
+            </button>
+          </div>
+        </div>
+    </div>
+    <a role="button" (click)="toggleSignUpLogin()">{{ isSignUp ? 'Login' : 'Sign up' }}</a>
+    <toaster-container [toasterconfig]="toasterconfig"></toaster-container>
+  </div>
+</div>

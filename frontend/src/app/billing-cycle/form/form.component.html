@@ -1,0 +1,48 @@
+<div role="form">
+  <div class="box-body">
+
+    <app-field 
+      type="'text'" 
+      id="name" 
+      label="Name" 
+      placeholder="Enter the name"
+      [disabled]="disabled"
+      [value]="billingCycle.name"
+      (changeValue)="billingCycle.name = $event.value"
+    ></app-field>
+
+    <app-field 
+      type="number" 
+      id="month" 
+      label="Month" 
+      placeholder="Enter the month"
+      [disabled]="disabled"
+      [value]="billingCycle.month"
+      (changeValue)="billingCycle.month = $event.value"
+    >
+    </app-field>
+
+    <app-field type="number" 
+      id="year" 
+      label="Year" 
+      placeholder="Enter the year"
+      [disabled]="disabled"
+      [value]="billingCycle.year"
+      (changeValue)="billingCycle.year = $event.value"
+    >
+    </app-field>
+    <app-summary [totalCredits]="getTotalCredits()" [totalDebts]="getTotalDebts()"></app-summary>
+
+    <div class="row">
+      <app-credit-list [credits]="billingCycle.credits" [disabled]="disabled"></app-credit-list>
+      <app-debt-list [debts]="billingCycle.debts" [disabled]="disabled"></app-debt-list>
+    </div>
+    
+  </div>
+  <div class="box-footer">
+    <div class="pull-right">
+      <button (click)="cancelEvent.emit()" class="btn btn-default">Cancel</button>
+      <button (click)="confirmEvent.emit()" class="{{ classButton + ' btn' }}">{{ textButton }}</button>
+    </div>
+  </div>
+</div>

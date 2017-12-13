@@ -1,0 +1,76 @@
+<section class="content-header">
+  <h1>Billing Cycles</h1>
+</section>
+<section class="content">
+  <div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+      <li *ngIf="showTabs.list" [ngClass]="{active: showTabs.list}">
+        <a href data-target="#tab-list" data-toggle="tab">
+          <i class="fa fa-bars"></i>List
+        </a>
+      </li>
+      <li *ngIf="showTabs.insert" [ngClass]="{active: showTabs.insert}">
+        <a href data-target="#tab-insert" data-toggle="tab">
+          <i class="fa fa-plus"></i>Insert
+        </a>
+      </li>
+      <li *ngIf="showTabs.update" [ngClass]="{active: showTabs.update}">
+        <a href data-target="#tab-update" data-toggle="tab">
+          <i class="fa fa-pencil"></i>Edit
+        </a>
+      </li>
+      <li *ngIf="showTabs.delete" [ngClass]="{active: showTabs.delete}">
+        <a href data-target="#tab-delete" data-toggle="tab">
+          <i class="fa fa-trash-o"></i>Delete
+        </a>
+      </li>
+    </ul>
+    <div class="tab-content">
+
+        <div class="tab-pane" id="tab-list" *ngIf="showTabs.list" [ngClass]="{active: showTabs.list}">
+          <app-cycle-list 
+            (onClickUpdate)="showUpdate($event)" 
+            (onClickDelete)="showDelete($event)"
+            (onClickInsert)="showInsert()"
+          >
+          </app-cycle-list>
+        </div>
+
+        <div class="tab-pane" id="tab-insert" *ngIf="showTabs.insert" [ngClass]="{active: showTabs.insert}">
+          <app-form 
+            [billingCycle]="billingCycle"
+            textButton="Insert"
+            (cancel)="restoreInitialView()"
+            (confirm)="insertBillingCycle()"
+            classButton="btn-primary"
+          >
+          </app-form>
+        </div>
+
+        <div class="tab-pane" id="tab-update" *ngIf="showTabs.update" [ngClass]="{active: showTabs.update}">
+          <app-form 
+            [billingCycle]="billingCycle" 
+            textButton="Update"
+            (cancel)="restoreInitialView()"
+            (confirm)="updateBillingCycle()"
+            classButton="btn-info"
+          >
+          </app-form>
+        </div>
+        
+        <div class="tab-pane" id="tab-delete" *ngIf="showTabs.delete" [ngClass]="{active: showTabs.delete}">
+          <app-form 
+            [billingCycle]="billingCycle" 
+            textButton="Delete"
+            (cancel)="restoreInitialView()"
+            (confirm)="deleteBillingCycle()"
+            classButton="btn-danger"
+            disabled="true"
+          >
+          </app-form>
+        </div>
+
+        <toaster-container [toasterconfig]="toasterconfig"></toaster-container>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+<div class="form-group has-feedback">
+  <input 
+    type="{{ type }}" 
+    class="form-control" 
+    placeholder="{{ placeholder }}" 
+    [(ngModel)]="value"
+    (change)="changeValue.emit({value: value})"
+    *ngIf="!hidden"
+  />
+</div>

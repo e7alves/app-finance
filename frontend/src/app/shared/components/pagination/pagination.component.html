@@ -1,0 +1,11 @@
+<ul *ngIf="needPagination" class="pagination pagination-sm no-margin">
+  <li *ngIf="hasPrev()">
+    <a [routerLink]="billingCycle" [queryParams]="{page: getPrev()}">Prev</a>
+  </li>
+  <li [ngClass]="{active: isCurrent(page)}" *ngFor="let page of getArrayPages()">
+    <a [routerLink]="billingCycle" [queryParams]="{page: page}">{{ page }}</a>
+  </li>
+  <li *ngIf="hasNext()">
+    <a [routerLink]="billingCycle" [queryParams]="{page: getNext()}">Next</a>
+  </li>  
+</ul>
